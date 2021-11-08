@@ -1,0 +1,37 @@
+@import '../../sass/variables.scss';
+
+.input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+
+  & label {
+    margin: 0 0 .25rem;
+    color: $blue;
+    font-weight: bold;
+    font-size: $font-normal;
+  }
+
+  & input {
+    padding: 0 0 .5rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid $blue;
+    outline: none;
+  }
+
+  & .input-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 1rem;
+    bottom: .5rem;
+    background: none;
+    outline: none;
+    border: none;
+  }
+}

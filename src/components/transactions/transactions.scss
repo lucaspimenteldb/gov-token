@@ -1,0 +1,45 @@
+@import '../../sass/variables.scss';
+
+.by-date {
+  margin: 1rem 0 0;
+  padding: 0 14px;
+  color: $blue;
+  font-size: $font-normal;
+  font-weight: 700;
+}
+.transactions-items {
+  margin: .25rem 0;
+  padding: .5rem 14px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+
+  & .icon {
+    margin: 0 0 4px;
+  }
+
+  & section {
+    margin: 0 0 0 1rem;
+    .type {
+      font-size: $font-normal;
+    }
+    .names {
+      color: $blue;
+      font-weight: 500;
+    }
+  }
+
+  & p {
+    margin: 0 0 0 auto;
+    color: #212224;
+    font-weight: 500;
+
+    &.pay {
+      color: $red;
+    }
+  }
+
+  .modal-icon {
+    margin: 0 0 2px 1rem;
+  }
+}

@@ -1,0 +1,84 @@
+@import '../../sass/variables.scss';
+
+.header--home {
+  padding: .5rem 1rem;
+  display: flex;
+  align-items: center;
+  background: $blue-gradient;
+  border-bottom: 2px solid #ffffff;
+
+  & section {
+    margin: 0 0 0 .5rem;
+
+    p {
+      margin: 0;
+      color: #ffffff;
+      font-size: $font-normal;
+    }
+    .name--home {
+      font-weight: 500;
+      font-size: $font-large;
+    }
+  }
+
+  .button-support--home {
+    margin: 0 0 0 auto;
+    display: block;
+    width: 38px;
+  }
+}
+
+.menu-actions--home {
+  padding: 1.5rem 1rem;
+  background: $blue-gradient;
+
+  & img {
+    max-width: 110px;
+  }
+
+  & h1 {
+    margin: .5rem 0 0;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: $font-extra-extra--large;
+  }
+
+  & .links--home {
+    
+    width: 60px;
+    height: 64px;
+    text-decoration: none;
+
+    p {
+      margin: .25rem 0 0;
+      font-size: $font-normal;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .actions--home {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      box-shadow: $shadow-button;
+
+      .pay--home, .charge--home {
+        margin: 0 0 3px 7px;
+      }
+      .transactions--home {
+        width: 24px;
+        height: 24px;
+      }
+      .convert--home {
+        margin: 0 0 5px 6px;
+      }
+      .support--home {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+}
