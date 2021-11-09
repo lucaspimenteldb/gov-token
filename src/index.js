@@ -6,12 +6,14 @@ import Home from './routes/home';
 import AllTransactions from './routes/allTransactions';
 import MakePayment from './routes/makePayment';
 import Charge from './routes/charge';
+import SignUp from './routes/signUp';
 
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
+      <Route path="/sign-up" element={<SignUp />} />
       <Route path="/home" element={<Home />} />
       <Route path="/all-transactions" element={<AllTransactions />} />
       <Route path="/pay" element={<MakePayment />} />

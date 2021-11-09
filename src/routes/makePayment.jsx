@@ -1,4 +1,5 @@
-import { Row, Col, Button, Form } from "react-bootstrap";
+import { Row, Col, Button, Form, Modal } from "react-bootstrap";
+import LogoSymbolBlue from '../assets/logo-symbol-blue.svg';
 import TransactionsItems from '../components/transactions/transactions';
 import Charge from '../assets/charge-icon.svg';
 import Pay from '../assets/pay-icon.svg';
@@ -6,6 +7,7 @@ import Header from '../components/header/header';
 import ArrowWhite from '../assets/arrow-white.svg'
 import '../sass/makepayment.scss'
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function MakePayment() {
   const transactions = [
@@ -42,6 +44,14 @@ export default function MakePayment() {
     },
   ]
 
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const [showError, setShowError] = useState(false);
+  const handleCloseError = () => setShowError(false);
+  const handleShowError = () => setShowError(true);
+
   const [step, setStep] = useState(1);
   const [invoiceCode, setInvoiceCode] = useState('');
   const [inputError, setInputError] = useState(false);
@@ -68,7 +78,8 @@ export default function MakePayment() {
     if (step === 1) {
       return (
         <Row>
-          <Col xs="12">
+          <Col xs="12" md={{span: 6, offset: 3}}>
+            <h5>Realizar transferências</h5>
             <p>Insira o código recebido</p>
 
             <Form>
@@ -95,7 +106,7 @@ export default function MakePayment() {
     if (step === 2) {
       return (
         <Row>
-          <Col xs="12">
+          <Col xs="12" md={{span: 6, offset: 3}}>
             <p>Você está transferindo</p>
 
             <p className="invoice-titles">GOV Tokens</p>
@@ -119,11 +130,11 @@ export default function MakePayment() {
     if (step === 1) {
       return (
         <div className="px-0">
-          <Col xs="12" className="mt-4">
+          <Col xs="12" md={{span: 6, offset: 3}} className="mt-4">
             <h6 className="last-transactions">Últimas transações</h6>
           </Col>
 
-          <Col xs="12" className="mb-4 px-0">
+          <Col xs="12" md={{span: 6, offset: 3}} className="mb-4 px-0">
             <TransactionsItems transactions={transactions}/>
           </Col>
         </div>
@@ -136,8 +147,6 @@ export default function MakePayment() {
       <Header noBalance/>
 
       <Col xs="12" className="payment-form">
-        { step === 1 && <h5>Realizar transferências</h5>}
-
         {/* render steps accordingly to the step we are in */}
         {stepOne()}
         {stepTwo()}
@@ -158,8 +167,8 @@ export default function MakePayment() {
       {/* show confirm and cancel button in step 2 */}
       { 
         step === 2 && 
-        <Col xs="12" className="mt-4 d-flex flex-column">
-          <Button className="confirm-transfer" size="lg">
+        <Col xs="12" md={{span: 6, offset: 3}} className="mt-4 d-flex flex-column">
+          <Button className="confirm-transfer" size="lg" onClick={handleShow}>
             CONFIRMAR TRANSFERÊNCIA
           </Button>
           <Button 
@@ -175,6 +184,60 @@ export default function MakePayment() {
       {/* show last transactions */}
       {renderTransactions()}
       
+      {/* confirm payment modal */}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            <img src={LogoSymbolBlue} alt="" />
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <section className="modal-info">
+            <p className="info-title">Desejar confirmar o pagamento?</p>
+
+            {/* amount transfered */}
+            <article>
+              <p className="info-label">GOV Tokens</p>
+              <p className="info-text amount">-8000</p>
+            </article>
+            {/* transfer date */}
+            <article>
+              <p className="info-label">Data da operação</p>
+              <p className="info-text">04/10/2021</p>
+            </article>
+            {/* amount transfered */}
+            <article>
+              <p className="info-label">Para</p>
+              <p className="info-text">Lucas Pimentel</p>
+            </article>
+          </section>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="outline-danger" onClick={handleClose}>CANCELAR</Button>
+          <Button>REALIZAR TRANSFERÊNCIA</Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* error modal */}
+      <Modal show={showError} onHide={handleCloseError}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            <img src={LogoSymbolBlue} alt="" />
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <section className="modal-info">
+            <p className="info-title error">Erro ao realizar a transferência</p>
+            <p>Deseja tentar novamente?</p>
+          </section>
+        </Modal.Body>
+        <Modal.Footer>
+          <Link to="/home">
+            <Button variant="outline-danger" >CANCELAR</Button>
+          </Link>
+          <Button onClick={handleCloseError}>TENTAR NOVAMENTE</Button>
+        </Modal.Footer>
+      </Modal>
     </Row>
   )
 }

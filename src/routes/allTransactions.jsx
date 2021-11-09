@@ -43,15 +43,15 @@ export default function AllTransactions() {
     <Row className="mx-0">
       <Header/>
 
-      <Col xs="12" className="mt-4">
+      <Col xs="12" md={{span: 6, offset: 3}} className="mt-4">
         <h4>Extrato</h4>
       </Col>
 
-      <Col xs="12" className="mb-4 px-0">
+      <Col xs="12" md={{span: 6, offset: 3}} className="mb-4 px-0">
         <TransactionsItems transactions={transactions}/>
       </Col>
 
-      <Col className="d-grid">
+      <Col className="d-grid" md={{span: 6, offset: 3}}>
         <Button variant="outline-primary">VER MAIS</Button>
       </Col>
     </Row>

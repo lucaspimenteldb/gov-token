@@ -46,14 +46,14 @@ export default function Home() {
     <Row className="mx-0">
       <Header menu/>
 
-      <Col xs="12" className="mt-4">
+      <Col xs="12" md={{span: 6, offset: 3}} className="mt-4">
         <h6>Últimas transações</h6>
       </Col>
-      <Col xs="12" className="mb-4 px-0">
+      <Col xs="12" md={{span: 6, offset: 3}} className="mb-4 px-0">
         <TransactionsItems transactions={transactions}/>
       </Col>
 
-      <Col xs="12">
+      <Col xs="12" md={{span: 6, offset: 3}}>
         <Link className="d-grid" to="/all-transactions">
           <Button variant="outline-primary">VER EXTRATO COMPLETO</Button>
         </Link>

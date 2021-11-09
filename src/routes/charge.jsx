@@ -37,7 +37,8 @@ export default function Charge() {
     if (step === 1) {
       return (
         <Row>
-          <Col xs="12">
+          <Col xs="12" md={{span: 6, offset: 3}}>
+            <h5>Cobrar GOV Tokens</h5>
             <p>Quantos GOV Tokens você deseja receber?</p>
 
             <Form>
@@ -61,7 +62,7 @@ export default function Charge() {
     if (step === 2) {
       return (
         <Row>
-          <Col xs="12">
+          <Col xs="12" md={{span: 6, offset: 3}}>
             <p>Você está cobrando</p>
 
             <p className="invoice-titles">GOV Tokens</p>
@@ -95,8 +96,6 @@ export default function Charge() {
       <Header noBalance/>
 
       <Col xs="12" className="payment-form">
-        { step === 1 && <h5>Cobrar GOV Tokens</h5>}
-
         {/* render steps accordingly to the step we are in */}
         {stepOne()}
         {stepTwo()}
@@ -117,7 +116,7 @@ export default function Charge() {
       {/* go back to home */}
       { 
         step === 2 && 
-        <Col xs="12" className="mt-4">
+        <Col xs="12" md={{span: 6, offset: 3}} className="mt-4">
           <Link to="/home">
             <Button variant="outline-primary">
               Voltar à página inicial

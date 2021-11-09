@@ -47,7 +47,9 @@ export default function Header(props) {
     <div className="px-0">
       <Col xs="12" className="px-0">
         <header className="header--home">
-          <img src={LogoSymbol} alt="" />
+          <Link to="/home" className="link-home">
+            <img src={LogoSymbol} alt="" />
+          </Link>
 
           <section>
             <p className="name--home">Anderson Moura</p>
@@ -60,7 +62,11 @@ export default function Header(props) {
 
       <Col xs="12" className={"menu-actions--home" + (props.noBalance && !props.menu ? ' pb-0' : '')} >
         <Row>
-          <Col xs="12" className={props.noBalance ? 'd-none' : ''}>
+          <Col 
+            xs="12" 
+            md={{span: 6, offset: 3}} 
+            className={props.noBalance ? 'd-none' : ''}
+          >
             <img src={Logo} alt="" />
             <h1>12.334,00</h1>
           </Col>
@@ -69,6 +75,7 @@ export default function Header(props) {
           <Col 
             xs="12" 
             className={"mt-4 mb-4 d-flex justify-content-between" + (props.menu ? '' : ' d-none')}
+            md={{span: 6, offset: 3}}
           >
             {
               buttons.map(button => (
