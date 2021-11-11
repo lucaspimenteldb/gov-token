@@ -68,7 +68,7 @@ export default function Transactions(props) {
             {/* transfer date */}
             <article>
               <p className="info-label">Data da operação</p>
-              <p className="info-text">04/10/2021</p>
+              <p className="info-text">04/10/2021 às 9:23</p>
             </article>
             {/* amount transfered */}
             <article>
