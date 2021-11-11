@@ -33,13 +33,13 @@ export default function Header(props) {
       icon: Convert,
       title: "Converter",
       iconClass: "convert--home",
-      route: "",
+      route: "/convert",
     },
     {
       icon: Support,
       title: "Suporte",
       iconClass: "support--home",
-      route: "",
+      route: "/support",
     },
   ];
 
@@ -56,7 +56,7 @@ export default function Header(props) {
             <p>Edital Tal</p>
           </section>
 
-          <Button variant="outline-light" className="button-support--home">?</Button>
+          <Button variant="outline-light" className="button-support--home">FAQ</Button>
         </header>
       </Col>
 

@@ -1,0 +1,33 @@
+@import 'variables.scss';
+
+.support-form {
+  margin-top: -1px;
+  background: $blue-gradient;
+  color: #fff;
+
+  & .subject {
+    margin: 0 0 24px;
+    background: none;
+    color: #fff;
+    outline: 1px solid #fff;
+    border: none;
+
+    &::placeholder {
+      color: #fff;
+    }
+
+    &:nth-child(2) {
+      margin: 0 0 40px;
+    }
+  }
+
+  .button-send {
+    padding: 12px 0;
+    background: #f2f2f2;
+
+    button {
+      margin: 24px 0 0;
+      font-size: $font-large;
+    }
+  }
+}

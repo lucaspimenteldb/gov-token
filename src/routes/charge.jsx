@@ -108,7 +108,7 @@ export default function Charge() {
             className="next-step" 
             onClick={() => nextStep()}
           >
-            <img src={ArrowWhite} alt="" />
+            COBRAR
           </Button>
         </Col>
       }

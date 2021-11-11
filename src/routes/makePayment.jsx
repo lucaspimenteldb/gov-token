@@ -79,7 +79,7 @@ export default function MakePayment() {
       return (
         <Row>
           <Col xs="12" md={{span: 6, offset: 3}}>
-            <h5>Realizar transferências</h5>
+            <h5>Realizar transferência</h5>
             <p>Insira o código recebido</p>
 
             <Form>
@@ -159,7 +159,7 @@ export default function MakePayment() {
             className="next-step" 
             onClick={() => nextStep()}
           >
-            <img src={ArrowWhite} alt="" />
+            TRANSFERIR
           </Button>
         </Col>
       }

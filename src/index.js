@@ -7,6 +7,9 @@ import AllTransactions from './routes/allTransactions';
 import MakePayment from './routes/makePayment';
 import Charge from './routes/charge';
 import SignUp from './routes/signUp';
+import Support from './routes/support';
+import ForgotPassword from './routes/forgotPassword';
+import Convert from './routes/convert';
 
 const rootElement = document.getElementById("root");
 render(
@@ -18,6 +21,9 @@ render(
       <Route path="/all-transactions" element={<AllTransactions />} />
       <Route path="/pay" element={<MakePayment />} />
       <Route path="/charge" element={<Charge />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/support" element={<Support />} />
+      <Route path="/convert" element={<Convert />} />
     </Routes>
   </BrowserRouter>,
   rootElement

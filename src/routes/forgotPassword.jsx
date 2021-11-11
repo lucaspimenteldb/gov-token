@@ -21,32 +21,22 @@ export default function SignUp() {
       </Col>
 
       <Col xs="12" className="mt-5 px-4">
-        <h3 className="signup-title">Cadastro de usuários</h3>
+        <h3 className="signup-title">Recuperar senha</h3>
       </Col>
 
       <form className="px-4">
         <Col xs="12" className="mt-4">
           <Input label="Email" type="email" placeholder={'Digite o seu email'} />
         </Col>
-        <Col xs="12" className="mt-4">
-          <Input label="Confirmar email" type="email" placeholder={'Digite o seu email'} />
-        </Col>
-
-        <Col xs="12" className="mt-4">
-          <Input label="Senha" type="password" placeholder={'Digite a sua senha'} iconPassword/>
-        </Col>
-        <Col xs="12" className="mt-4">
-          <Input label="Confirmar senha" type="password" placeholder={'Digite a sua senha'} iconPassword/>
-        </Col>
 
         <Col xs="12" className="mt-5 mb-5 d-grid">
           <Button size="lg" className="button-signup" onClick={handleShow}>
-            CADASTRAR
+            RECUPERAR SENHA
           </Button>
         </Col>
       </form>
 
-      {/* confirm payment modal */}
+      {/* confirm email sent */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
           <Modal.Title>
@@ -55,9 +45,9 @@ export default function SignUp() {
         </Modal.Header>
         <Modal.Body>
           <section className="modal-info">
-            <p className="info-title">Cadastro realizado com sucesso!</p>
+            <p className="info-title">Email enviado</p>
 
-            <p>Enviamos um email com o link para verificação da sua conta. Para finalizar o seu cadastro basta acessar o link fornecido na mensagem.</p>
+            <p>Enviamos um email com o link para que você possa redefinir a sua senha.</p>
           </section>
         </Modal.Body>
         <Modal.Footer>
