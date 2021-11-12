@@ -1,7 +1,6 @@
 import { Row, Col, Button, Modal, Form } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
-import logo from '../assets/logo-gov-token-white.svg';
 import LogoSymbolBlue from '../assets/logo-symbol-blue.svg';
 import Header from '../components/header/header';
 import '../sass/support.scss';
@@ -56,7 +55,7 @@ export default function Support() {
         </Modal.Body>
         <Modal.Footer>
           <Link to="/home">
-            <Button>VOLTAR PARA PÁGINA INICAL</Button>
+            <Button>VOLTAR PARA PÁGINA INICIAL</Button>
           </Link>
         </Modal.Footer>
       </Modal>

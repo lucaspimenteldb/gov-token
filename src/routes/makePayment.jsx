@@ -4,7 +4,6 @@ import TransactionsItems from '../components/transactions/transactions';
 import Charge from '../assets/charge-icon.svg';
 import Pay from '../assets/pay-icon.svg';
 import Header from '../components/header/header';
-import ArrowWhite from '../assets/arrow-white.svg'
 import '../sass/makepayment.scss'
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -51,6 +50,10 @@ export default function MakePayment() {
   const [showError, setShowError] = useState(false);
   const handleCloseError = () => setShowError(false);
   const handleShowError = () => setShowError(true);
+
+  const [showConfirmation, setshowConfirmation] = useState(false);
+  const handleCloseConfirmation = () => setshowConfirmation(false);
+  const handleShowConfirmation = () => (setShow(false), setshowConfirmation(true));
 
   const [step, setStep] = useState(1);
   const [invoiceCode, setInvoiceCode] = useState('');
@@ -214,7 +217,30 @@ export default function MakePayment() {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="outline-danger" onClick={handleClose}>CANCELAR</Button>
-          <Button>REALIZAR TRANSFERÊNCIA</Button>
+          <Button onClick={handleShowConfirmation}>REALIZAR TRANSFERÊNCIA</Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* confirmed payment*/}
+      <Modal show={showConfirmation} onHide={handleCloseConfirmation}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            <img src={LogoSymbolBlue} alt="" />
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <section className="modal-info">
+            <p className="info-title">Pagamento efetuado!</p>
+
+            {/* amount transfered */}
+            <article>
+              <p className="info-label">GOV Tokens</p>
+              <p className="info-text amount">-8000</p>
+            </article>
+          </section>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button>OK</Button>
         </Modal.Footer>
       </Modal>
 
@@ -233,7 +259,7 @@ export default function MakePayment() {
         </Modal.Body>
         <Modal.Footer>
           <Link to="/home">
-            <Button variant="outline-danger" >CANCELAR</Button>
+            <Button variant="outline-danger">CANCELAR</Button>
           </Link>
           <Button onClick={handleCloseError}>TENTAR NOVAMENTE</Button>
         </Modal.Footer>

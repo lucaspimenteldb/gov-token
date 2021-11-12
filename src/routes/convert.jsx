@@ -62,9 +62,9 @@ export default function Charge() {
         </Modal.Header>
         <Modal.Body>
           <section className="modal-info">
-            <p className="info-title">A cobrança foi feita</p>
+            <p className="info-title">A conversão foi solicitada</p>
 
-            <p>Enviaremos um código de cobrança para o seu email. Com o código em mãos pague o invoice na aba COBRAR para converter os seus GOV Tokens</p>
+            <p>Enviaremos um código de cobrança para o seu email. Com o código em mãos pague o invoice na aba PAGAR para converter os seus GOV Tokens</p>
           </section>
         </Modal.Body>
         <Modal.Footer>

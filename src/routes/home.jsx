@@ -5,6 +5,7 @@ import Charge from '../assets/charge-icon.svg';
 import Pay from '../assets/pay-icon.svg';
 import '../sass/home.scss'
 import Header from '../components/header/header';
+import Footer from '../components/footer/footer';
 
 export default function Home() {
   
@@ -58,6 +59,8 @@ export default function Home() {
           <Button variant="outline-primary">VER EXTRATO COMPLETO</Button>
         </Link>
       </Col>
+
+      <Footer/>
     </Row>
   )
 }

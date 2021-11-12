@@ -35,7 +35,7 @@ export default function Login() {
       </form>
 
       <Col xs="12" md={{span: 6, offset: 3}} className="px-4 d-flex flex-column">
-        <Link to="/asd">Esqueci minha senha</Link>
+        <Link to="/forgot-password">Esqueci minha senha</Link>
         <Link to="/asd">Está com problemas? <span>Falar com o suporte</span></Link>
       </Col>
 

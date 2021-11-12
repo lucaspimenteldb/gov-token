@@ -1,6 +1,5 @@
 import { Row, Col, Button, Form } from "react-bootstrap";
 import Header from '../components/header/header';
-import ArrowWhite from '../assets/arrow-white.svg'
 import '../sass/makepayment.scss'
 import { useState } from "react";
 import { Link } from "react-router-dom";
