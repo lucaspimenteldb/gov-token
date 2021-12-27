@@ -1,0 +1,57 @@
+@import './variables.scss';
+
+#transparency {
+    .header {
+        padding: 40px 40px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(82.7deg, #15265E 37.49%, #0A4FCC 130.95%);
+      
+        & img {
+          max-width: 200px;
+        }
+    }
+
+    .title {
+        margin: 2rem 0 0;
+        font-weight: 600;
+    }
+    
+    .transparency-cards {
+        margin: 0 .5rem 1rem;
+        padding: 1.25rem .75rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 30%;
+        min-width: 235px;
+        background: #fff;
+        box-shadow: 3px 4px 14px rgba(20, 20, 20, .3);
+
+        &--title {
+            margin: 0 0 .5rem;
+            font-weight: 600;
+            font-size: 14px;
+            color: $blue;
+        }
+        @media (min-width: 600px) {
+            & {
+                min-width: 270px;
+            }
+            &--title {
+                font-size: 16px;
+            }
+        }
+        &--value {
+            color: $blue;
+        }
+    }
+
+    .table-heads {
+        color: $blue;
+    }
+    .tokens-transfered {
+        font-weight: 600;
+        color: $blue;
+    }
+}

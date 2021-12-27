@@ -10,6 +10,7 @@ import SignUp from './routes/signUp';
 import Support from './routes/support';
 import ForgotPassword from './routes/forgotPassword';
 import Convert from './routes/convert';
+import TransparencyPortal from './routes/transparencyPortal';
 
 const rootElement = document.getElementById("root");
 render(
@@ -24,6 +25,7 @@ render(
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/support" element={<Support />} />
       <Route path="/convert" element={<Convert />} />
+      <Route path="/transparency-portal" element={<TransparencyPortal />} />
     </Routes>
   </BrowserRouter>,
   rootElement
