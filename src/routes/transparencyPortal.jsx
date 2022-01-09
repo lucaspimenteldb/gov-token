@@ -1,3 +1,5 @@
+import axios from 'axios';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { Row, Col, Button, Table } from 'react-bootstrap';
 import { Link } from "react-router-dom";
@@ -35,26 +37,33 @@ export default function TransparencyPortal() {
         },
     ]
     const tHeads = ['Projeto', 'Código de Transferência', 'Origem', 'Destino', 'Data', 'Horário', 'Valores Transacion.']
-    const tBody = [
-        {
-            project: 1,
-            code: 'asklj895kjehf80asdhfiuh01assdf',
-            origin: 'Investtools',
-            destiny: 'Marcos Jardim',
-            date: '21/12/2020',
-            time: '10:34',
-            tokens: '10.000,00'
-        },
-        {
-            project: 2,
-            code: 'a8324h2378h4ha0ua87j4w4awe',
-            origin: 'Blockchain Studio',
-            destiny: 'Eric Arroio',
-            date: '20/12/2020',
-            time: '10:49',
-            tokens: '23.124,00'
-        },
-    ]
+    const [body, setBody] = useState([]);
+    const wallets = [1, 2];
+
+    useEffect(() => {
+        const axios = require('axios');
+        const fetchData = () => {
+            wallets.forEach(async wallet => {
+                try {
+                    const response = await axios.get(`http://govtoken.com.br:44888/v1/transactions/${wallet}`);
+                    const arrayWithProject = response.data;
+                    arrayWithProject.forEach(ar => ar.project = wallet);
+
+                    setBody(oldArray => [...oldArray, ...arrayWithProject]);
+                } catch (error) {
+                    console.error(error.message);
+                }
+            })
+        }
+
+        fetchData();
+    }, []);
+
+    const formatDate = (date) => {
+        const dates = date.split('-');
+        return `${dates[2]}-${dates[1]}-${dates[0]}`
+    }
+
 
     return (
         <Row id="transparency">
@@ -94,15 +103,15 @@ export default function TransparencyPortal() {
                     </thead>
                     <tbody>
                         {
-                            tBody.map(body => ( 
+                            body.map(body => ( 
                                 <tr>
                                     <td>{body.project}</td>
-                                    <td>{body.code}</td>
-                                    <td>{body.origin}</td>
-                                    <td>{body.destiny}</td>
-                                    <td>{body.date}</td>
-                                    <td>{body.time}</td>
-                                    <td className='tokens-transfered'>{body.tokens}</td>
+                                    <td title={body.txhash}>{body.txhash.substring(0, 20)}...</td>
+                                    <td>{body.sender}</td>
+                                    <td>{body.receiver}</td>
+                                    <td>{formatDate(body.date.split(' ')[0])}</td>
+                                    <td>{body.date.split(' ')[1]}</td>
+                                    <td className='tokens-transfered'>{body.amount}</td>
                                 </tr> 
                             ))
                         }
