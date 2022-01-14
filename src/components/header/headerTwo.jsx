@@ -12,13 +12,13 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 
-export default function Header(props) {
+export default function HeaderTwo(props) {
   const buttons = [
     {
       icon: Pay,
       title: "Pagar",
       iconClass: "pay--home",
-      route: "/pay/1",
+      route: "/pay/2",
     },
     {
       icon: Charge,
@@ -30,7 +30,7 @@ export default function Header(props) {
       icon: Transactions,
       title: "Extrato",
       iconClass: "transactions--home",
-      route: "/all-transactions/1",
+      route: "/all-transactions/2",
     },
     {
       icon: Convert,
@@ -49,7 +49,7 @@ export default function Header(props) {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await axios.get('http://govtoken.com.br:44888/v1/wallets/1');
+        const response = await axios.get('http://govtoken.com.br:44888/v1/wallets/2');
         setUser(response.data);
         console.log(response.data)
       } 

@@ -59,6 +59,8 @@ export default function TransparencyPortal() {
         fetchData();
     }, []);
 
+    
+
     const formatDate = (date) => {
         const dates = date.split('-');
         return `${dates[2]}-${dates[1]}-${dates[0]}`

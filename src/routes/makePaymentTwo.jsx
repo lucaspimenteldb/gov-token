@@ -8,13 +8,14 @@ import '../sass/makepayment.scss'
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import HeaderTwo from "../components/header/headerTwo";
 
-export default function MakePayment() {
+export default function MakePaymentTwo() {
   useEffect(() => {
     const axios = require('axios');
     const getTransactions = async () => {
       try {
-        const response = await axios.get('http://govtoken.com.br:44888/v1/transactions/1');
+        const response = await axios.get('http://govtoken.com.br:44888/v1/transactions/2');
         setApiTransactions([{date: '15 jan, 2022', transactions: response.data}]);
         console.log(response.data)
       } 
@@ -35,8 +36,8 @@ export default function MakePayment() {
     const time = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
     console.log(time, invoiceValue)
     axios.post(`http://govtoken.com.br:44888/v1/send/1/2/${invoiceValue}`,{
-      sender: '1',
-      receiver: '2',
+      sender: '2',
+      receiver: '1',
       date: time,
       amount: invoiceValue
     }).then((res) => {
@@ -163,7 +164,7 @@ export default function MakePayment() {
 
   return (
     <Row className="mx-0">
-      <Header noBalance/>
+      <HeaderTwo noBalance/>
 
       <Col xs="12" className="payment-form">
         {/* render steps accordingly to the step we are in */}
@@ -274,7 +275,7 @@ export default function MakePayment() {
           </section>
         </Modal.Body>
         <Modal.Footer>
-          <Link to="/home">
+          <Link to="/home/2">
             <Button variant="outline-danger">CANCELAR</Button>
           </Link>
           <Button onClick={handleCloseError}>TENTAR NOVAMENTE</Button>

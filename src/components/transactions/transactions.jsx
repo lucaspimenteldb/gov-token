@@ -3,6 +3,8 @@ import ChevronRight from '../../assets/chevron-right.svg';
 import LogoSymbolBlue from '../../assets/logo-symbol-blue.svg';
 import { Modal, Button } from 'react-bootstrap';
 import { useState } from 'react';
+import Charge from '../../assets/charge-icon.svg';
+import Pay from '../../assets/pay-icon.svg';
 
 
 export default function Transactions(props) {
@@ -23,23 +25,23 @@ export default function Transactions(props) {
           <p className="by-date">{date.date}</p>
 
           {/* array with all transactions from the day  */}
-          {date.transactions.map(transaction => (
+          {date.transactions.map((transaction, i) => (
             <div 
               className="transactions-items" 
-              key={transaction.id + transaction.transactionType}
+              key={i + transaction.date}
               onClick={handleShow}
             >
-            <img src={transaction.icon} alt="" className="icon"/>
+            <img src={transaction.sender === '1' ? Pay : Charge} alt="" className="icon"/>
 
             <section>
               <p className="type">
-                {transaction.transactionType === 'pay' ? 'Pagamento Realizado' : 'Transferência Recebida'}
+                {transaction.sender === '1' ? 'Pagamento Realizado' : 'Transferência Recebida'}
               </p>
-              <p className="names">{transaction.toOrFrom}</p>
+              <p className="names">{transaction.sender === '1'  ? 'Jesse' : 'Walter'}</p>
             </section>
 
             <p className={transaction.transactionType}>
-              {`${transaction.transactionType === 'pay' ? '-' : '+'} ${transaction.amount}`}
+              {`${transaction.sender === '1' ? '-' : '+'} ${transaction.amount}`}
             </p>
             <img src={ChevronRight} alt="" className="modal-icon"/>
           </div>

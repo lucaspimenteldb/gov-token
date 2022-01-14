@@ -2,15 +2,15 @@ import { Row, Col, Button } from "react-bootstrap";
 import TransactionsItems from '../components/transactions/transactions';
 import Charge from '../assets/charge-icon.svg';
 import Pay from '../assets/pay-icon.svg';
-import Header from '../components/header/header';
 import { useState, useEffect } from "react";
+import HeaderTwo from "../components/header/headerTwo";
 
-export default function AllTransactions() {
+export default function AllTransactionsTwo() {
   useEffect(() => {
     const axios = require('axios');
     const getTransactions = async () => {
       try {
-        const response = await axios.get('http://govtoken.com.br:44888/v1/transactions/1');
+        const response = await axios.get('http://govtoken.com.br:44888/v1/transactions/2');
         setApiTransactions([{date: '15 jan, 2022', transactions: response.data}]);
         console.log(response.data)
       } 
@@ -26,7 +26,7 @@ export default function AllTransactions() {
   
   return (
     <Row className="mx-0">
-      <Header/>
+      <HeaderTwo/>
 
       <Col xs="12" md={{span: 6, offset: 3}} className="mt-4">
         <h4>Extrato</h4>

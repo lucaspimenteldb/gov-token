@@ -11,6 +11,9 @@ import Support from './routes/support';
 import ForgotPassword from './routes/forgotPassword';
 import Convert from './routes/convert';
 import TransparencyPortal from './routes/transparencyPortal';
+import HomeTwo from './routes/homeTwo';
+import AllTransactionsTwo from './routes/allTransactionsTwo';
+import MakePaymentTwo from './routes/makePaymentTwo';
 
 const rootElement = document.getElementById("root");
 render(
@@ -18,9 +21,12 @@ render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/sign-up" element={<SignUp />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/all-transactions" element={<AllTransactions />} />
-      <Route path="/pay" element={<MakePayment />} />
+      <Route path="/home/1" element={<Home />} />
+      <Route path="/home/2" element={<HomeTwo />} />
+      <Route path="/all-transactions/1" element={<AllTransactions />} />
+      <Route path="/all-transactions/2" element={<AllTransactionsTwo />} />
+      <Route path="/pay/1" element={<MakePayment />} />
+      <Route path="/pay/2" element={<MakePaymentTwo />} />
       <Route path="/charge" element={<Charge />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/support" element={<Support />} />

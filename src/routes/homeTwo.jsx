@@ -9,13 +9,14 @@ import Footer from '../components/footer/footer';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import HeaderTwo from '../components/header/headerTwo';
 
-export default function Home() {
+export default function HomeTwo() {
   useEffect(() => {
     const axios = require('axios');
     const getTransactions = async () => {
       try {
-        const response = await axios.get('http://govtoken.com.br:44888/v1/transactions/1');
+        const response = await axios.get('http://govtoken.com.br:44888/v1/transactions/2');
         setApiTransactions([{date: '15 jan, 2022', transactions: response.data}]);
         console.log(response.data)
       } 
@@ -32,7 +33,7 @@ export default function Home() {
 
   return (
     <Row className="mx-0">
-      <Header menu/>
+      <HeaderTwo menu/>
 
       <Col xs="12" md={{span: 6, offset: 3}} className="mt-4">
         <h6>Últimas transações</h6>
@@ -42,7 +43,7 @@ export default function Home() {
       </Col>
 
       <Col xs="12" md={{span: 6, offset: 3}}>
-        <Link className="d-grid" to="/all-transactions">
+        <Link className="d-grid" to="/all-transactions/2">
           <Button variant="outline-primary">VER EXTRATO COMPLETO</Button>
         </Link>
       </Col>
