@@ -42,7 +42,7 @@ export default function Home() {
       </Col>
 
       <Col xs="12" md={{span: 6, offset: 3}}>
-        <Link className="d-grid" to="/all-transactions">
+        <Link className="d-grid" to="/all-transactions/1">
           <Button variant="outline-primary">VER EXTRATO COMPLETO</Button>
         </Link>
       </Col>

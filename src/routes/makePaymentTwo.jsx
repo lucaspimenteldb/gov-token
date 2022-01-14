@@ -8,9 +8,8 @@ import '../sass/makepayment.scss'
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import HeaderTwo from "../components/header/headerTwo";
 
-export default function MakePaymentTwo() {
+export default function MakePayment() {
   useEffect(() => {
     const axios = require('axios');
     const getTransactions = async () => {
@@ -35,15 +34,15 @@ export default function MakePaymentTwo() {
     const date = new Date();
     const time = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
     console.log(time, invoiceValue)
-    axios.post(`http://govtoken.com.br:44888/v1/send/1/2/${invoiceValue}`,{
-      sender: '2',
-      receiver: '1',
-      date: time,
-      amount: invoiceValue
+    axios.get(`http://govtoken.com.br:44888/v1/send/2/1/${invoiceValue}`, {
+        sender: '1',
+        receiver: '2',
+        date: time,
+        amount: invoiceValue,
     }).then((res) => {
       console.log(res)
       setShow(true);
-    }).catch((er) => console.log(er.request))
+    }).catch((er) => console.log())
   };
 
   const [showError, setShowError] = useState(false);
@@ -164,7 +163,7 @@ export default function MakePaymentTwo() {
 
   return (
     <Row className="mx-0">
-      <HeaderTwo noBalance/>
+      <Header noBalance/>
 
       <Col xs="12" className="payment-form">
         {/* render steps accordingly to the step we are in */}
@@ -218,7 +217,7 @@ export default function MakePaymentTwo() {
             {/* amount transfered */}
             <article>
               <p className="info-label">GOV Tokens</p>
-              <p className="info-text amount">-8000</p>
+              <p className="info-text amount">-{invoiceValue}</p>
             </article>
             {/* transfer date */}
             <article>
@@ -252,12 +251,14 @@ export default function MakePaymentTwo() {
             {/* amount transfered */}
             <article>
               <p className="info-label">GOV Tokens</p>
-              <p className="info-text amount">-8000</p>
+              <p className="info-text amount">-{invoiceValue}</p>
             </article>
           </section>
         </Modal.Body>
         <Modal.Footer>
-          <Button>OK</Button>
+          <Link to='/home/2'>
+            <Button onCLick={() => setshowConfirmation(false)}>OK</Button>
+          </Link>
         </Modal.Footer>
       </Modal>
 
@@ -275,7 +276,7 @@ export default function MakePaymentTwo() {
           </section>
         </Modal.Body>
         <Modal.Footer>
-          <Link to="/home/2">
+          <Link to="/home">
             <Button variant="outline-danger">CANCELAR</Button>
           </Link>
           <Button onClick={handleCloseError}>TENTAR NOVAMENTE</Button>
