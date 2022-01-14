@@ -257,7 +257,7 @@ export default function MakePayment() {
         </Modal.Body>
         <Modal.Footer>
           <Link to='/home/1'>
-            <Button onCLick={() => setshowConfirmation(false)}>OK</Button>
+            <Button onClick={() => setshowConfirmation(false)}>OK</Button>
           </Link>
         </Modal.Footer>
       </Modal>

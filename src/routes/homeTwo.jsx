@@ -1,6 +1,6 @@
 import { Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import TransactionsItems from '../components/transactions/transactions';
+import TransactionsItems from '../components/transactions/transactionsTwo';
 import Charge from '../assets/charge-icon.svg';
 import Pay from '../assets/pay-icon.svg';
 import '../sass/home.scss'

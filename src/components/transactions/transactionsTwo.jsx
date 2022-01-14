@@ -31,17 +31,17 @@ export default function Transactions(props) {
               key={i + transaction.date}
               onClick={handleShow}
             >
-            <img src={transaction.sender === '1' ? Pay : Charge} alt="" className="icon"/>
+            <img src={transaction.sender === '2' ? Pay : Charge} alt="" className="icon"/>
 
             <section>
               <p className="type">
-                {transaction.sender === '1' ? 'Pagamento Realizado' : 'Transferência Recebida'}
+                {transaction.sender === '2' ? 'Pagamento Realizado' : 'Transferência Recebida'}
               </p>
-              <p className="names">{transaction.sender === '2'  ? 'Jesse' : 'Walter'}</p>
+              <p className="names">{transaction.sender === '1'  ? 'Jesse' : 'Walter'}</p>
             </section>
 
             <p className={transaction.transactionType}>
-              {`${transaction.sender === '1' ? '-' : '+'} ${transaction.amount}`}
+              {`${transaction.sender === '2' ? '-' : '+'} ${transaction.amount}`}
             </p>
             <img src={ChevronRight} alt="" className="modal-icon"/>
           </div>
