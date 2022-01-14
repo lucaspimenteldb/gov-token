@@ -66,7 +66,7 @@ export default function HeaderTwo(props) {
     <div className="px-0">
       <Col xs="12" className="px-0">
         <header className="header--home">
-          <Link to="/home" className="link-home">
+          <Link to="/home/2" className="link-home">
             <img src={LogoSymbol} alt="" />
           </Link>
 

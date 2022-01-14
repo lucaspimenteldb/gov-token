@@ -28,7 +28,7 @@ export default function Login() {
         </Col>
 
         <Col xs="12" md={{span: 6, offset: 3}} className="mt-5 mb-5">
-          <Link to="/home" className="d-grid gap-2">
+          <Link to="/home/1" className="d-grid gap-2">
             <Button size="lg" className="button--login">ENTRAR</Button>
           </Link>
         </Col>

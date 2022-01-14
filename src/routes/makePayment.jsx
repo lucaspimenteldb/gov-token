@@ -34,15 +34,24 @@ export default function MakePayment() {
     const date = new Date();
     const time = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
     console.log(time, invoiceValue)
-    axios.post(`http://govtoken.com.br:44888/v1/send/1/2/${invoiceValue}`,{
-      sender: '1',
-      receiver: '2',
-      date: time,
-      amount: invoiceValue
+    axios.post(`http://govtoken.com.br:44888/v1/send/1/2/${invoiceValue}`, {
+      withCredentials: true,
+      body: {
+        sender: '1',
+        receiver: '2',
+        date: time,
+        amount: invoiceValue,
+      },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length"
+      }
     }).then((res) => {
       console.log(res)
       setShow(true);
-    }).catch((er) => console.log(er.request))
+    }).catch((er) => console.log())
   };
 
   const [showError, setShowError] = useState(false);
